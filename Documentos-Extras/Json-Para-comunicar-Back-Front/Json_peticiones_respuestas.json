@@ -1,0 +1,219 @@
+//Ejemplo de Peticiones y respuesta para consumir la web api para el modulo de personas fisicas. Fue testeado en ARC
+
+
+/***************
+ *  READ    ***
+ * *************/
+//Peticion
+//      http://localhost:61631/PhysicalP/GetAll
+        {
+            "UserId":1,
+            "Token":"sdfasdfa",//acualmente no se utiliza, pues no me dio tiempo de crear un modulo generador de Token, pero ya esta listo para recibirlo o, bien ponerlo en el header
+        }
+
+
+//Respuesta Existosa          
+{
+  "HttpCode": 200,
+  "Data": [
+    {
+      "PhysicalPersonId": 2,
+      "Names": "Erik Omar",
+      "LastNameFather": "Montes",
+      "LastNameMother": "Castro",
+      "RFC": "MOCE920324KLS",
+      "BirthDate": "1992-03-24T00:00:00",
+      "RegistryDate": "2021-07-13T21:24:08.24",
+      "UpdateDate": null,
+      "IsActive": true
+    },
+    {
+      "PhysicalPersonId": 3,
+      "Names": "Lorena",
+      "LastNameFather": "Perez",
+      "LastNameMother": "Morales",
+      "RFC": "LOREPSMOPPYUE",
+      "BirthDate": "1990-09-25T00:00:00",
+      "RegistryDate": "2021-07-13T21:24:08.24",
+      "UpdateDate": null,
+      "IsActive": true
+    },
+    {
+      "PhysicalPersonId": 4,
+      "Names": "Francisco",
+      "LastNameFather": "Mendoza",
+      "LastNameMother": "Cruz",
+      "RFC": "FRANPOIUYTREW",
+      "BirthDate": "1990-09-25T00:00:00",
+      "RegistryDate": "2021-07-13T21:24:08.24",
+      "UpdateDate": null,
+      "IsActive": true
+    },
+    {
+      "PhysicalPersonId": 13,
+      "Names": "Perla",
+      "LastNameFather": "Montes",
+      "LastNameMother": "Castro",
+      "RFC": "PERLPOIUYTREW",
+      "BirthDate": "1985-02-01T00:00:00",
+      "RegistryDate": "2021-07-18T13:19:44.447",
+      "UpdateDate": null,
+      "IsActive": true
+    },
+    {
+      "PhysicalPersonId": 15,
+      "Names": "Armando",
+      "LastNameFather": "Montes",
+      "LastNameMother": "Castro",
+      "RFC": "MOCE920324PLI",
+      "BirthDate": "2021-07-25T00:00:00",
+      "RegistryDate": "2021-07-18T14:26:08.22",
+      "UpdateDate": null,
+      "IsActive": true
+    }
+  ]
+}
+    
+    
+
+
+//Peticion por Id de persona fisica
+//http://localhost:61631/PhysicalP/GetbyId/?UserId=1&PhysicalPersonId=2
+
+//Respuesta Existosa
+{
+  "HttpCode": 200,
+  "Data": {
+    "PhysicalPersonId": 2,
+    "Names": "Erik Omar",
+    "LastNameFather": "Montes",
+    "LastNameMother": "Castro",
+    "RFC": "MOCE920324KLS",
+    "BirthDate": "1992-03-24T00:00:00",
+    "RegistryDate": "2021-07-13T21:24:08.24",
+    "UpdateDate": null,
+    "IsActive": true
+  }
+}
+    
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/***************
+ *  CREATE   ***
+ * *************/
+
+//Peticion
+//http://localhost:61631/PhysicalP/Create
+        {
+            "UserId":1,
+            "Token":"sdfasdfa",
+            "Names":"Erik Omar",
+            "LastNameFather":"Montes",
+            "LastNameMother":"Castro",
+            "RFC":"MOCE920324",
+            "BirthDate":"2021-07-25"
+
+        }
+
+//Respuesta Exitosa
+{
+  "HttpCode": 200,
+  "Data": {
+    "PhysicalPersonId": 15,
+    "Names": "Armando",
+    "LastNameFather": "Montes",
+    "LastNameMother": "Castro",
+    "RFC": "MOCE920324PLI",
+    "BirthDate": "2021-07-25T00:00:00",
+    "RegistryDate": "2021-07-18T14:26:08.22",
+    "UpdateDate": null,
+    "IsActive": true
+  }
+}        
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/***************
+ *  UPDATE   ***
+ * *************/
+
+//Peticion
+//http://localhost:61631/PhysicalP/Update
+         {
+            "UserId":1,
+            "Token":"sdfasdfa",
+            "Names":"Victoria",
+            "LastNameFather":"Montes",
+            "LastNameMother":"Castro",
+            "RFC":"MOCE920324KLS",
+            "BirthDate":"2021-07-25",
+            "PhysicalPersonId":2
+        }
+
+
+//Respuesta Exitosa      
+{
+  "HttpCode": 200,
+  "Data": {
+    "PhysicalPersonId": 2,
+    "Names": "Victoria",
+    "LastNameFather": "Montes",
+    "LastNameMother": "Castro",
+    "RFC": "MOCE920324KLS",
+    "BirthDate": "2021-07-25T00:00:00",
+    "RegistryDate": "2021-07-13T21:24:08.24",
+    "UpdateDate": "2021-07-18T17:06:47.867",
+    "IsActive": true
+  }
+}
+    
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/***************
+ *  DELETE   ***
+ * *************/
+
+//Peticion
+//http://localhost:61631/PhysicalP/Delete
+         {
+            "UserId":1,
+            "Token":"sdfasdfa",
+            "PhysicalPersonId":13
+        }
+
+//Respuesta Existosa
+{
+  "HttpCode": 200,
+  "Data": {
+    "PhysicalPersonId": 13 //se devuelve el id de la persona fisica que se borró
+  }
+}        
+
+
+/************************************************************************************************************************
+****  Json de Respuestas a errores comúnes que la web API manda al si ocurre  algun error de negocio o con el codigo ****
+******************** ****************************************************************************************************/
+{
+  "Message": "El RFC ya existe en el sistema"
+}  
+
+
+{
+  "Message": "El RFC no es válido"
+}  
+
+
+{
+  "Message": "El RFC ya existe en el sistema"
+}
+
+{
+  "Message": "Exception interna en el servidor, contacte a soporte"
+}
+
+
+
+

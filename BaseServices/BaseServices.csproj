@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6CC12B2E-3217-4880-91EF-4E0F11305CF2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BaseServices</RootNamespace>
+    <AssemblyName>BaseServices</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.5.1.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.10\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Constant\Db\ConnectionData\TokaDbConnectionConst.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Constant\Messages\BaseExceptionMsgConstant.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Constant\Messages\BaseMsgConstant.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Helper\BaseHelper.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Model\BaseModel.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Model\Dto\ConnectionDataDto.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Model\Repository\Db\ResponseDb.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Repository\BaseRepository.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Repository\Db\IBaseRepositoryDataBase.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Repository\Db\IBaseSpExecutor.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Repository\Db\Impl\BaseRepositoryDataBase.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Repository\Db\IBaseDbContext.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Repository\Db\Impl\BaseDbContext.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Repository\Db\Impl\BaseSpExecutor.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Rule\BaseRule.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Service\BaseService.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Wrapper\Impl\WindsorContainerWrapper.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Wrapper\IWindsorContainerWrapper.cs" />
+    <Compile Include="src\Toka\BaseServices\Common\Exceptions\TokaBaseException.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Components\IBaseComponent.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Components\Impl\BaseComponent.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Components\ISingleton.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Constant\BaseInfrastructureConst.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Container\Scanners\Impl\CommonScanner.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Container\Scanners\Impl\GlobalContainer.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Container\Scanners\Impl\InterfacesScanner.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Container\Scanners\Impl\SingletonScanner.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Container\Scanners\ITokaContainerScanner.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Container\Scanners\Impl\TokaBaseScanner.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Helper\CommonValidationScanner.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Repository\Db\Impl\TokaDbConnection.cs" />
+    <Compile Include="src\Toka\BaseServices\Infrastructure\Repository\Db\ITokaDbConnection.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="NLog.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
